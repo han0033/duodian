@@ -1,9 +1,10 @@
 <template>
   <div class="classify">
     <search-box />
-    <filter-bar
-      :sideBar = side_bar
-      @change="navChange"
+    <tabs
+      :hotNav = leftMenu
+      tab-name="categoryName"
+      class="left-tab"
     />
   </div>
 </template>
@@ -15,26 +16,16 @@ export default {
   name: 'classify',
   data () {
     return {
-      side_bar: [],
+      leftMenu: []
     }
   },
   created () {
-    this.initClassifyData()
+    this.fetchcategory()
   },
   methods: {
-    initClassifyData () {
-      this.$api.home.base().then((res) => {
-        this.side_bar = res.data.side_bar
-      })
-    },
-    navChange (index, item) {
-      // this.fetchProductParams.classid = item.id
-      // this.fetchProductParams.page = 1
-      // const top = this.$refs.content.offsetTop
-      // const scrollTop = document.querySelector('html').scrollTop
-      // if (scrollTop > top) {
-      //   window.scrollTo(0, top)
-      // }
+    async fetchcategory () {
+      const res = await this.$api.product.category()
+      this.leftMenu = res.data
     }
   }
 }
@@ -42,6 +33,6 @@ export default {
 
 <style>
 .classify {
-  height: 200vh;
+  height: 100vh;
 }
 </style>

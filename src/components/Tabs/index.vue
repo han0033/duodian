@@ -1,5 +1,7 @@
 <template>
-  <div class="tabs">
+  <div class="tabs" :class="{
+      [layout]: true
+    }">
     <nav ref="nav">
       <a
         href="javascript:;"
@@ -8,7 +10,7 @@
         :class="activeIndex == index ? 'active' : '' "
         @click="change(index)"
       >
-        {{item.title}}
+        {{item[tabName]}}
       </a>
     </nav>
   </div>
@@ -18,7 +20,15 @@
 export default {
   name: 'tabs',
   props: {
-    hotNav: Array
+    hotNav: Array,
+    tabName: {
+      type: String,
+      default: 'title'
+    },
+    layout: {
+      type: String,
+      default: 'row'
+    }
   },
   data () {
     return {

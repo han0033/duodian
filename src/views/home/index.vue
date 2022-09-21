@@ -35,7 +35,7 @@ export default {
       fetchProductParams: {
         page: 1,
         page_size: 10,
-        classid: 1
+        category_id: 1
       }
     }
   },
@@ -59,21 +59,21 @@ export default {
   methods: {
     initHomeData () {
       this.$api.home.base().then((res) => {
-        this.banner = res.data.banner
-        this.mall = res.data.mall_nav
-        this.hot = res.data.hot_nav
+        this.banner = res.banner
+        this.mall = res.mall_nav
+        this.hot = res.hot_nav
       })
     },
     async fetchProductList () {
       const res = await this.$api.product.list(this.fetchProductParams)
       if (this.fetchProductParams.page == 1) {
-        this.product = res.data.data
+        this.product = res.data
       } else {
-        this.product = this.product.concat(res.data.data)
+        this.product = this.product.concat(res.data)
       }
     },
     navChange (index, item) {
-      this.fetchProductParams.classid = item.id
+      this.fetchProductParams.category_id = item.id
       this.fetchProductParams.page = 1
       const top = this.$refs.content.offsetTop
       const scrollTop = document.querySelector('html').scrollTop
