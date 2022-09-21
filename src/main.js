@@ -22,7 +22,7 @@ Vue.component('Tabs', Tabs)
 Vue.component('ProductList', ProductList)
 Vue.component('Tags', Tags)
 Vue.component('FilterBar', FilterBar)
-
+console.log(321);
 new Vue({
   router,
   store,
