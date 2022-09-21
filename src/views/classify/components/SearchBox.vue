@@ -2,7 +2,7 @@
   <div class="search-box">
     <div class="search">
       <i class="iconfont icon-sousuo"></i>
-      <input type="text" placeholder="搜索校园超市商品">
+      <input type="text" placeholder="搜索校园超市商品111">
     </div>
   </div>
 </template>
