@@ -35,6 +35,11 @@ export default {
       activeIndex: 0
     }
   },
+  watch: {
+    hotNav () {
+      this.activeIndex = 0
+    }
+  },
   methods: {
     change (index) {
       this.activeIndex = index
@@ -60,6 +65,37 @@ export default {
         font-size: 32px;
         font-weight: 600;
       }
+    }
+  }
+}
+.column {
+  @include wh(172px, auto);
+  display: inline-block;
+  background-color: #f8f8f8;
+  nav {
+    @include wh(172px, 100%);
+    @include flex(column, center);
+    overflow-y: scroll;
+    box-shadow: 2px 2px 0 0 #ddd;
+    position: fixed;
+    left: 0;
+    top: 98px;
+    a {
+      width: 172px;
+      display: block;
+      text-align: center;
+      font-size: 24px;
+      color: #999;
+      padding: 40px 0;
+      &.active {
+        color: #000;
+        font-size: 28px;
+        font-weight: 600;
+        background-color: #fff;
+      }
+    }
+    &::-webkit-scrollbar { 
+      width: 0 !important 
     }
   }
 }

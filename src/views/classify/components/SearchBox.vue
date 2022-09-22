@@ -22,6 +22,8 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 5;
+  box-shadow: 0 0 2px 1px #ddd;
   .search {
     @include wh(100%, 100%);
     position: relative;

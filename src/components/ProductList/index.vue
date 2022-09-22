@@ -8,7 +8,7 @@
       <dd>
         <div class="top">
           <h3>{{item.name}}</h3>
-          <p>累计{{87654234 | numberFormat}}份 / 已拼{{765123 | numberFormat}}份</p>
+          <p>累计{{8765 | numberFormat}}份 / 已拼{{765 | numberFormat}}份</p>
           <Tags :list = "['自营', '团购']" />
         </div>
         <div class="bottom">
